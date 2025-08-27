@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Air monitoring project</title>
+  <meta name="description" content="Google Colab-szerű, cellákra bontott egyoldalas HTML sablon." />
+  <style>
+    :root{
+      --bg: #0b0f17;
+      --paper: #111827;
+      --paper-light: #1f2937;
+      --paper-lighter: #374151;
+      --text:#e5e7eb;
+      --muted:#94a3b8;
+      --border:#1f2937;
+      --accent:#60a5fa;
+      --radius:14px;
+      --shadow:0 6px 18px rgba(0,0,0,.35);
+      --mono: ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+      --sans: ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Ubuntu,Cantarell,"Noto Sans","Helvetica Neue",Arial;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:var(--sans);background:var(--bg);color:var(--text)}
+
+    header{position:sticky;top:0;z-index:40;background:#111827cc;backdrop-filter:blur(8px);border-bottom:1px solid rgba(148,163,184,.2)}
+    .top{width:min(1100px,94vw);margin:0 auto;display:flex;align-items:center;gap:14px;padding:10px 0}
+    .dot{width:10px;height:10px;border-radius:999px;background:var(--accent)}
+    .title{font-weight:700;color:var(--text)}
+    .actions{margin-left:auto;display:flex;gap:10px}
+    .btn{border:1px solid rgba(148,163,184,.25);padding:8px 12px;border-radius:10px;background:var(--paper-light);color:var(--text);text-decoration:none}
+    .btn:hover{background:var(--paper-lighter)}
+
+    .container{width:min(1100px,94vw);margin:24px auto}
+    .notebook{display:grid;gap:18px}
+
+    .cell{
+      display:grid;grid-template-columns:92px 1fr;gap:0;
+      background:var(--paper);
+      border:1px solid rgba(148,163,184,.25);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      overflow:hidden; /* biztosítja a mindkét oldali lekerekítést */
+    }
+    .gutter{
+      border-right:1px solid rgba(148,163,184,.15);
+      background:var(--paper-light);
+      padding:16px 12px;
+      display:flex;flex-direction:column;align-items:flex-end;justify-content:space-between
+    }
+    .prompt{font-family:var(--mono);font-size:13px;color:var(--muted)}
+    .label{font-size:12px;color:var(--muted);border:1px solid rgba(148,163,184,.25);padding:4px 8px;border-radius:8px;background:var(--paper-lighter)}
+    .content{padding:20px}
+
+    .content h1{font-size:26px;margin:0 0 10px;color:var(--text)}
+    .content h2{font-size:22px;margin:22px 0 8px;color:var(--text)}
+    .content h3{font-size:18px;margin:18px 0 6px;color:var(--text)}
+    .content p{margin:0 0 10px;line-height:1.6;color:var(--text)}
+    .content ul{margin:0 0 10px 1.2rem}
+    .content code{font-family:var(--mono);background:var(--paper-light);border:1px solid rgba(148,163,184,.25);padding:.1rem .35rem;border-radius:6px;color:var(--accent)}
+
+    figure{margin:0}
+    .imgwrap{display:block;overflow:hidden;border-radius:12px;border:1px solid rgba(148,163,184,.25)}
+    .imgwrap img{display:block;width:100%;height:auto}
+    figcaption{margin-top:8px;color:var(--muted);font-size:14px}
+
+    @media (max-width:860px){ .cell{grid-template-columns:72px 1fr} }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="top">
+      <span class="dot" aria-hidden="true"></span>
+      <div class="title">Development of a Quality Control Cell</div>
+      <div class="actions">
+        <!-- <a class="btn" href="#top">Ugrás a tetejére</a> -->
+        <!-- <a class="btn" href="#beillesztesi-utmutato">Beillesztési útmutató</a> -->
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="notebook">
+      <a id="top"></a>
+
+      <!-- ======= SZÖVEGES és KÉP CELLÁK – a Word dokumentum sorrendjében töltsd ki ======= -->
+
+      <!-- CELL 1: CÍM/ABSZTRAKT (Word: első oldal) -->
+      <section class="cell">
+        <div class="gutter">
+          <div class="prompt">In [1]:</div>
+          <div class="label">Text</div>
+        </div>
+        <div class="content">
+          <h1 id="attekintes">Overview - Problem Statement</h1>
+          <p style="text-align: justify;"><em>I present the development of an optical, automated quality control cell capable of capturing high-resolution images of internally threaded components. The aim of the development was to implement a system suitable for visual data collection of components produced during manufacturing, thereby supporting the training of a future AI-based classification model.</em></p>
+        </div>
+      </section>
+
+      <!-- CELL 2: FOLYAMAT / MÓDSZER -->
+      <section class="cell">
+        <div class="gutter">
+          <div class="prompt">In [2]:</div>
+          <div class="label">Text</div>
+        </div>
+        <div class="content">
+          <h2 id="fejlesztes">Development process 1.</h2>
+          <p style="text-align: justify;"><em>During the design of the custom-developed quality control cell, I first defined the system requirements, then selected the necessary hardware and software components accordingly. The cell’s frame was constructed from aluminum profiles, and the imaging system was composed of a monochrome industrial camera, telecentric optics, and a ring LED light source. The three-axis movement of the camera is handled by a precision lead screw system controlled by a motor controller. The positioning of the components is performed by a pneumatic unit, and the control is managed through a user-friendly graphical interface.</em></p>
+        </div>
+      </section>
+
+      <!-- CELL 3: KÉP -->
+      <section class="cell">
+        <!-- <h2 id="validacio">Steps</h2> -->
+        <div class="gutter">
+          <div class="prompt">In [5]:</div>
+          <div class="label">Image</div>
+        </div>
+        <div class="content">
+          <figure>
+            <div class="imgwrap">
+              <img src="quality_control_cell_1.jpg" alt="The prepared model of the final state" />
+            </div>
+            <figcaption style="text-align: center;"><em>The prepared model of the final state</em></figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="cell">
+        <div class="gutter">
+          <div class="prompt">In [2]:</div>
+          <div class="label">Text</div>
+        </div>
+        <div class="content">
+          <h2 id="fejlesztes">Development process 2.</h2>
+          <p style="text-align: justify;"><em>Using image processing, I determined the outer tangent of the part by applying filtering and geometric rules. After noise reduction and edge detection, I extracted relevant contours and used shape-based criteria (e.g., perimeter and circularity) to accurately identify the outer edge. Finally, I unwrapped the part into a flat view for further analysis.</em></p>
+        </div>
+      </section>
+
+      <!-- CELL 4: KÉP -->
+      <section class="cell">
+        <div class="gutter">
+          <div class="prompt">In [6]:</div>
+          <div class="label">Image</div>
+        </div>
+        <div class="content">
+          <figure>
+            <div class="imgwrap">
+              <img src="quality_control_cell_2.jpg" alt="The original picture with the outer edge and the wrapped image" />
+            </div>
+            <figcaption style="text-align: center;"><em>The original picture with the outer edge and the wrapped image</em></figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="cell">
+        <div class="gutter">
+          <div class="prompt">In [2]:</div>
+          <div class="label">Text</div>
+        </div>
+        <div class="content">
+          <h2 id="fejlesztes">Development process 3.</h2>
+          <p style="text-align: justify;"><em>After detecting the part’s outer edge with image processing, I automated centering. Since the ring can shift in the holder, I computed the contour’s geometric center from the camera image and compared it to a predefined reference. If the deviation exceeded the predefined tolerance, I repositioned the camera and restarted the inspection cycle. Stepper motors with 0.005 mm resolution provided the required 0.01 mm positioning accuracy.</em></p>
+        </div>
+      </section>
+
+      <!-- CELL 4: KÉP -->
+      <section class="cell">
+        <div class="gutter">
+          <div class="prompt">In [6]:</div>
+          <div class="label">Image</div>
+        </div>
+        <div class="content">
+          <figure>
+            <div class="imgwrap">
+              <img src="A bekezdés szövege (1).png" alt="Automated centering" />
+            </div>
+            <figcaption style="text-align: center;"><em>Automated centering</em></figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="cell">
+        <div class="gutter">
+          <div class="prompt">In [2]:</div>
+          <div class="label">Text</div>
+        </div>
+        <div class="content">
+          <h2 id="fejlesztes">Development process 4.</h2>
+          <p style="text-align: justify;"><em>The system starts with operator login and program launch. The software then checks connections with the camera and motor controller; once initialized, status indicators turn green.</em></p>
+          <p style="text-align: justify;"><em>The camera performs a homing sequence using limit switches, then returns to a predefined position where the part is placed. After the operator inserts the part and clicks Capture Image, a pneumatic cylinder moves it under the camera for centering. The camera captures and unwraps the image for analysis.</em>em></p>
+          <p style="text-align: justify;"><em>Both the original and unwrapped images appear in the GUI, where the operator classifies the part (MR/NMR) and can add comments, such as the machine ID.</em>em></p>
+        </div>
+      </section>
+      
+      <!-- CELL 4: KÉP -->
+      <section class="cell">
+        <div class="gutter">
+          <div class="prompt">In [6]:</div>
+          <div class="label">Image</div>
+        </div>
+        <div class="content">
+          <figure>
+            <div class="imgwrap">
+              <img src="gui_egyben.png" alt="GUI surface" />
+            </div>
+            <figcaption style="text-align: center;"><em>GUI surface</em></figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="cell">
+        <div class="gutter">
+          <div class="prompt">In [2]:</div>
+          <div class="label">Text</div>
+        </div>
+        <div class="content">
+          <h2 id="fejlesztes">Development process 5.</h2>
+          <p style="text-align: justify;"><em>During image processing, metadata is stored in a structured .txt file with a predefined format. This includes the operator ID (for traceability of subjective evaluations), part identifiers, counters, and inspection parameters, ensuring full process traceability.</em></p>
+          <p style="text-align: justify;"><em>Based on the recorded data, statistical analysis was performed, enabling process optimization. As a result, the cycle time was reduced from ~23 seconds to 12.99 seconds.</em>em></p>
+        </div>
+      </section>
+
+      <!-- CELL 4: KÉP -->
+      <section class="cell">
+        <div class="gutter">
+          <div class="prompt">In [6]:</div>
+          <div class="label">Image</div>
+        </div>
+        <div class="content">
+          <figure>
+            <div class="imgwrap">
+              <img src="qc_statisztika.png" alt="Status data" />
+            </div>
+            <figcaption style="text-align: center;"><em>Status data</em></figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- CELL 4: KÉP -->
+      <section class="cell">
+        <div class="gutter">
+          <div class="prompt">In [6]:</div>
+          <div class="label">Image</div>
+        </div>
+        <div class="content">
+          <figure>
+            <div class="imgwrap">
+              <img src="qc_statisztika_2.png" alt="Status data" />
+            </div>
+            <figcaption style="text-align: center;"><em>Status data</em></figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="cell">
+        <div class="gutter">
+          <div class="prompt">In [3]:</div>
+          <div class="label">Text</div>
+        </div>
+        <div class="content">
+          <h2 id="eredmenyek">Key Achievements</h2>
+          <ul style="text-align: justify;">
+            <li>Implementation of an automated visual quality inspection cell</li>
+            <li>Construction of a complex mechanical and automation system</li>
+            <li>Custom-developed control and image processing software</li>
+            <li>Development of a user-friendly graphical interface</li>
+            <li>Outstanding accuracy (validated on 300 units, 99% accuracy)</li>
+            <li>Achievement of fast cycle time (currently 12.99 sec average cycle time)</li>
+            <li>Foundation for AI-based data collection</li>
+            <li>Design of a scalable and integrable system</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- CELL 4: KÉP -->
+      <section class="cell">
+        <div class="gutter">
+          <div class="prompt">In [6]:</div>
+          <div class="label">Image</div>
+        </div>
+        <div class="content">
+          <figure>
+            <div class="imgwrap">
+              <img src="1000035055.jpg" alt="The completed QC apparatus" />
+            </div>
+            <figcaption style="text-align: center;"><em>The completed QC apparatus</em></figcaption>
+          </figure>
+        </div>
+      </section>
+      
+    </div>
+  </main>
+</body>
+</html>
